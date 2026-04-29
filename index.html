@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jojomo Guest House | Affordable Luxury in Zambia</title>
+    <meta name="description" content="Comfortable and affordable accommodation in Lusaka and Luanshya. Enjoy quality stays from as low as K100 per night.">
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator-container">
+        <div class="scroll-progress-bar" id="scrollBar"></div>
+    </div>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">JOJOMO <span>GUEST HOUSE</span></a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#locations">Locations</a>
+                <a href="#pricing">Rooms</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <a href="#contact" class="btn-primary nav-btn">Book Now</a>
+            <!-- Dark Mode Toggle -->
+            <button class="dark-mode-toggle" id="darkModeToggle" title="Toggle Dark Mode">
+                <i class="fas fa-moon" id="darkModeIcon"></i>
+            </button>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="home">
+        <!-- Particle Canvas -->
+        <canvas id="heroParticles"></canvas>
+        <!-- Floating Animated Words -->
+        <div class="floating-words" aria-hidden="true">
+            <span class="fw" style="--fw-x:5%;  --fw-y:20%; --fw-dur:18s; --fw-delay:0s;   --fw-size:1.1rem;">Luxury</span>
+            <span class="fw" style="--fw-x:75%; --fw-y:15%; --fw-dur:22s; --fw-delay:3s;   --fw-size:0.9rem;">Comfort</span>
+            <span class="fw" style="--fw-x:45%; --fw-y:70%; --fw-dur:16s; --fw-delay:1s;   --fw-size:1.3rem;">Privacy</span>
+            <span class="fw" style="--fw-x:85%; --fw-y:55%; --fw-dur:20s; --fw-delay:5s;   --fw-size:0.85rem;">Affordable</span>
+            <span class="fw" style="--fw-x:20%; --fw-y:65%; --fw-dur:25s; --fw-delay:2s;   --fw-size:1rem;">Clean</span>
+            <span class="fw" style="--fw-x:60%; --fw-y:30%; --fw-dur:14s; --fw-delay:4s;   --fw-size:1.2rem;">Peaceful</span>
+            <span class="fw" style="--fw-x:30%; --fw-y:82%; --fw-dur:19s; --fw-delay:1.5s; --fw-size:0.95rem;">Secure</span>
+            <span class="fw" style="--fw-x:90%; --fw-y:80%; --fw-dur:23s; --fw-delay:6s;   --fw-size:0.8rem;">Welcoming</span>
+            <span class="fw" style="--fw-x:10%; --fw-y:45%; --fw-dur:17s; --fw-delay:2.5s; --fw-size:1.4rem;">Home</span>
+            <span class="fw" style="--fw-x:55%; --fw-y:88%; --fw-dur:21s; --fw-delay:0.5s; --fw-size:0.9rem;">Quality</span>
+        </div>
+        <!-- Sliding Backgrounds -->
+        <div class="hero-bg hero-slide active" style="background-image: url('Assets/635451546_1321914003288026_2000956678850449016_n.jpg');"></div>
+        <div class="hero-bg hero-slide" style="background-image: url('Assets/632847889_1321913946621365_5003853025565871320_n.jpg');"></div>
+        <div class="hero-bg hero-slide" style="background-image: url('Assets/484325237_1051402163672546_2211440440512215168_n.jpg');"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="text-gold typing-multi"></h1>
+            <p>Enjoy quality accommodation in Lusaka &amp; Luanshya from as low as K100 per night.</p>
+            <div class="hero-btns animate-on-scroll delay-1">
+                <a href="#contact" class="btn-primary">Book Now</a>
+                <a href="#pricing" class="btn-secondary">View Rooms</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text animate-on-scroll slide-left">
+                    <h2 class="section-title">About Jojomo Guest House</h2>
+                    <p>Jojomo Guest House provides clean, secure, and affordable accommodation for travelers, couples, and short stays. With multiple locations in Lusaka and Luanshya, we offer convenient access, privacy, and comfort at budget-friendly rates.</p>
+                    <div class="features">
+                        <div class="feature"><i class="fas fa-bed"></i> <span>Clean Rooms</span></div>
+                        <div class="feature"><i class="fas fa-shield-alt"></i> <span>Secure Environment</span></div>
+                        <div class="feature"><i class="fas fa-wallet"></i> <span>Budget Friendly</span></div>
+                    </div>
+                </div>
+                <div class="about-img animate-on-scroll slide-right delay-1">
+                    <img src="Assets/632847889_1321913946621365_5003853025565871320_n.jpg" alt="Jojomo Room">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Locations Section -->
+    <section id="locations" class="locations-section bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Our Locations</h2>
+            <div class="location-cards">
+                <!-- Lusaka Card -->
+                <div class="card location-card animate-on-scroll zoom-in">
+                    <div class="card-img" style="background-image: url('Assets/484230374_1050453150434114_8536135058058539716_n.jpg');"></div>
+                    <div class="card-content">
+                        <h3><i class="fas fa-map-marker-alt text-gold"></i> Lusaka – Chalala</h3>
+                        <p class="subtitle">Woodlands Area</p>
+                        <ul class="location-details">
+                            <li><i class="fas fa-home"></i> House No. 6 Jumbe Street</li>
+                            <li><i class="fas fa-road"></i> Near Arthur Wina Primary School & Titanic Car Wash</li>
+                            <li><i class="fas fa-shopping-bag"></i> Close to Lewanika Mall</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Luanshya Card -->
+                <div class="card location-card animate-on-scroll zoom-in delay-1">
+                    <div class="card-img" style="background-image: url('Assets/484512757_1050201010459328_6837487442794168598_n.jpg');"></div>
+                    <div class="card-content">
+                        <h3><i class="fas fa-map-marker-alt text-gold"></i> Luanshya</h3>
+                        <p class="subtitle">Newtown & Gardenia Avenue</p>
+                        <ul class="location-details">
+                            <li><i class="fas fa-map"></i> G Avenue & Mimkofwa Area</li>
+                            <li><i class="fas fa-compass"></i> Riverside & West Direction Locations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Room Pricing Section -->
+    <section id="pricing" class="pricing-section">
+        <div class="container">
+            <h2 class="section-title text-center animate-on-scroll">Affordable Room Rates</h2>
+            <p class="text-center section-subtitle animate-on-scroll">Prices vary by location and availability</p>
+            <div class="pricing-grid">
+                <div class="price-card tilt-effect animate-on-scroll zoom-in" data-room="Basic Room" data-price="K100" data-desc="A cozy, well-maintained room perfect for short stays. Includes a comfortable bed, clean linen, and access to shared bathroom facilities." data-img="Assets/484325237_1051402163672546_2211440440512215168_n.jpg">
+                    <div class="badge">Promotion</div>
+                    <h3>Basic Room</h3>
+                    <div class="price">K100<span>/night</span></div>
+                    <div class="card-actions">
+                        <a href="#contact" class="btn-outline">Book Now</a>
+                        <button class="btn-quickview"><i class="fas fa-eye"></i> Quick View</button>
+                    </div>
+                </div>
+                <div class="price-card tilt-effect animate-on-scroll zoom-in delay-1" data-room="Standard Room" data-price="K150" data-desc="Our standard room offers a private bathroom, queen bed, and a relaxing environment. Ideal for business travelers or couples." data-img="Assets/484349363_1050215787124517_5618860297068260933_n.jpg">
+                    <h3>Standard Room</h3>
+                    <div class="price">K150<span>/night</span></div>
+                    <div class="card-actions">
+                        <a href="#contact" class="btn-outline">Book Now</a>
+                        <button class="btn-quickview"><i class="fas fa-eye"></i> Quick View</button>
+                    </div>
+                </div>
+                <div class="price-card popular tilt-effect animate-on-scroll zoom-in delay-2" data-room="Comfort Room" data-price="K200" data-desc="Our most popular choice! Enjoy a spacious room with double bed, en-suite bathroom, and a peaceful ambiance. Great for extended stays." data-img="Assets/484758286_1051402213672541_2116387993672595153_n.jpg">
+                    <div class="badge gold-badge">Most Popular</div>
+                    <h3>Comfort Room</h3>
+                    <div class="price">K200<span>/night</span></div>
+                    <div class="card-actions">
+                        <a href="#contact" class="btn-primary">Book Now</a>
+                        <button class="btn-quickview"><i class="fas fa-eye"></i> Quick View</button>
+                    </div>
+                </div>
+                <div class="price-card tilt-effect animate-on-scroll zoom-in" data-room="Executive Budget" data-price="K250" data-desc="Step up in comfort with this executive room featuring a large workspace, double bed, and elegant decor at an unbeatable price." data-img="Assets/486609886_3766031716955043_5254884469444671313_n.jpg">
+                    <h3>Executive Budget</h3>
+                    <div class="price">K250<span>/night</span></div>
+                    <div class="card-actions">
+                        <a href="#contact" class="btn-outline">Book Now</a>
+                        <button class="btn-quickview"><i class="fas fa-eye"></i> Quick View</button>
+                    </div>
+                </div>
+                <div class="price-card tilt-effect animate-on-scroll zoom-in delay-1" data-room="Premium Room" data-price="K350" data-desc="A premium experience with a luxury queen bed, private bathroom, air conditioning and superior room fittings for the discerning guest." data-img="Assets/632136322_1321907493288677_5182934168245206108_n.jpg">
+                    <h3>Premium Room</h3>
+                    <div class="price">K350<span>/night</span></div>
+                    <div class="card-actions">
+                        <a href="#contact" class="btn-outline">Book Now</a>
+                        <button class="btn-quickview"><i class="fas fa-eye"></i> Quick View</button>
+                    </div>
+                </div>
+                <div class="price-card luxury tilt-effect animate-on-scroll zoom-in delay-2" data-room="Deluxe Stay" data-price="K450" data-desc="The pinnacle of Jojomo luxury. Spacious suite with king bed, sitting area, premium bathroom, and an unforgettable atmosphere." data-img="Assets/632601093_1321907543288672_8796624191436980852_n.jpg">
+                    <h3>Deluxe Stay</h3>
+                    <div class="price">K450<span>/night</span></div>
+                    <div class="card-actions">
+                        <a href="#contact" class="btn-outline">Book Now</a>
+                        <button class="btn-quickview"><i class="fas fa-eye"></i> Quick View</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Gallery Slider -->
+    <section class="gallery-section bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Room Gallery</h2>
+            <div class="gallery-slider">
+                <div class="slider-track">
+                    <img src="Assets/484325237_1051402163672546_2211440440512215168_n.jpg" alt="Room 1" class="lightbox-trigger">
+                    <img src="Assets/484349363_1050215787124517_5618860297068260933_n.jpg" alt="Room 2" class="lightbox-trigger">
+                    <img src="Assets/484758286_1051402213672541_2116387993672595153_n.jpg" alt="Room 3" class="lightbox-trigger">
+                    <img src="Assets/486609886_3766031716955043_5254884469444671313_n.jpg" alt="Room 4" class="lightbox-trigger">
+                    <img src="Assets/632136322_1321907493288677_5182934168245206108_n.jpg" alt="Room 5" class="lightbox-trigger">
+                    <img src="Assets/632601093_1321907543288672_8796624191436980852_n.jpg" alt="Room 6" class="lightbox-trigger">
+                </div>
+                <button class="slider-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                <button class="slider-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services & Offers -->
+    <section id="services" class="services-offers-section">
+        <div class="container">
+            <div class="split-layout">
+                <!-- Offers -->
+                <div class="offers-box animate-on-scroll slide-left">
+                    <h2 class="section-title">Special Offers</h2>
+                    <ul class="offer-list">
+                        <li><i class="fas fa-tags text-gold"></i> Rooms on Promotion</li>
+                        <li><i class="fas fa-calendar-alt text-gold"></i> End of Year Sales</li>
+                        <li><i class="fas fa-suitcase-rolling text-gold"></i> Affordable Long Stay Options</li>
+                        <li><i class="fas fa-birthday-cake text-gold"></i> Outside Birthday Party Venue Available</li>
+                    </ul>
+                </div>
+                <!-- Services -->
+                <div class="services-box animate-on-scroll slide-right delay-1">
+                    <h2 class="section-title">Extra Services</h2>
+                    <div class="service-item">
+                        <div class="service-icon"><i class="fas fa-coffee"></i></div>
+                        <div class="service-info">
+                            <h4>English Breakfast</h4>
+                            <p>K100 per plate</p>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon"><i class="fas fa-glass-cheers"></i></div>
+                        <div class="service-info">
+                            <h4>Outdoor Event Space</h4>
+                            <p>Birthdays & small gatherings</p>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon"><i class="fas fa-lock"></i></div>
+                        <div class="service-info">
+                            <h4>Secure & Gated</h4>
+                            <p>Peace of mind during your stay</p>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon"><i class="fas fa-clock"></i></div>
+                        <div class="service-info">
+                            <h4>24/7 Availability</h4>
+                            <p>We are always here for you</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title text-center animate-on-scroll">What Our Guests Say</h2>
+            <div class="testimonials-carousel">
+                <div class="testimonial-track" id="testimonialTrack">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="testimonial-text">&ldquo;Absolutely loved my stay at Jojomo! The rooms are spotless, the environment is quiet and secure. Great value for money in Lusaka. Will definitely come back!&rdquo;</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar"><i class="fas fa-user"></i></div>
+                            <div>
+                                <strong>Thandiwe M.</strong>
+                                <span>Lusaka, Zambia</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="testimonial-text">&ldquo;Best accommodation in Luanshya at this price! The staff are so friendly and the rooms are clean and comfortable. The English breakfast was delicious!&rdquo;</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar"><i class="fas fa-user"></i></div>
+                            <div>
+                                <strong>Kelvin C.</strong>
+                                <span>Luanshya, Zambia</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        <p class="testimonial-text">&ldquo;Very affordable and peaceful place to stay. I hosted my birthday party here and everything was perfect. The outdoor space is lovely. Highly recommend!&rdquo;</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar"><i class="fas fa-user"></i></div>
+                            <div>
+                                <strong>Mutale B.</strong>
+                                <span>Copperbelt, Zambia</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-dots" id="testimonialDots">
+                    <span class="dot active" data-index="0"></span>
+                    <span class="dot" data-index="1"></span>
+                    <span class="dot" data-index="2"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <h2 class="section-title text-center animate-on-scroll">Frequently Asked Questions</h2>
+            <div class="accordion animate-on-scroll zoom-in">
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        What time is check-in and check-out? <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Our standard check-in time is 2:00 PM, and check-out is at 11:00 AM. If you require early check-in or late check-out, please let us know in advance and we will do our best to accommodate you.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        Do you provide Wi-Fi and parking? <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Yes! We offer complimentary high-speed Wi-Fi in all rooms and secure, gated parking on the premises for all our guests.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        Can I host a birthday party or small event? <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Absolutely. We have a dedicated outdoor event space perfect for birthdays and small gatherings. Please contact us directly for rates and availability.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        Do you offer meals or breakfast? <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Yes, we offer a delicious English Breakfast for K100 per plate. You can request this when booking or upon arrival at the guest house.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section bg-light">
+        <div class="container">
+            <div class="contact-card animate-on-scroll zoom-in">
+                <div class="contact-info">
+                    <h2 class="section-title">Book Your Stay</h2>
+                    <p>Reach out to us to confirm availability and make your reservation.</p>
+                    <div class="contact-methods">
+                        <div class="method">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <p>0979760646</p>
+                                <p>+260760902673</p>
+                                <p>+260963818248</p>
+                                <p>0761838641</p>
+                            </div>
+                        </div>
+                        <div class="method">
+                            <i class="fab fa-whatsapp"></i>
+                            <div>
+                                <p>0966216259</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-actions">
+                        <a href="tel:+260979760646" class="btn-primary"><i class="fas fa-phone-alt"></i> Call Now</a>
+                        <a href="https://wa.me/260966216259" class="btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Booking</a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send an Inquiry</h3>
+                    <form id="bookingForm" action="#" method="POST">
+                        <div class="form-group">
+                            <input type="text" id="b_name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="b_phone" placeholder="Phone Number" required>
+                        </div>
+                        <div class="form-group">
+                            <select id="b_location" required>
+                                <option value="" disabled selected>Select Location</option>
+                                <option value="lusaka">Lusaka - Chalala</option>
+                                <option value="luanshya">Luanshya</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="b_message" placeholder="Message / Specific Requirements" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary w-100">Send Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>JOJOMO <span>GUEST HOUSE</span></h2>
+                    <p>Comfortable, affordable, and secure accommodation tailored for you.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Locations</h3>
+                    <ul>
+                        <li>Lusaka – Chalala</li>
+                        <li>Luanshya – Newtown</li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> 0979760646</li>
+                        <li><i class="fab fa-whatsapp"></i> 0966216259</li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Follow Us</h3>
+                    <a href="https://facebook.com" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i> Jojomo Guest House</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Jojomo Guest House. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/260966216259" class="floating-whatsapp" target="_blank" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" title="Back to Top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="offerToast">
+        <div class="toast-icon"><i class="fas fa-fire"></i></div>
+        <div class="toast-body">
+            <strong>🔥 Special Offer!</strong>
+            <p>Book today and get priority check-in. Limited rooms available!</p>
+        </div>
+        <button class="toast-close" id="toastClose"><i class="fas fa-times"></i></button>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox-overlay" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose"><i class="fas fa-times"></i></button>
+        <button class="lightbox-prev" id="lightboxPrev"><i class="fas fa-chevron-left"></i></button>
+        <img class="lightbox-img" id="lightboxImg" src="" alt="Gallery Image">
+        <button class="lightbox-next" id="lightboxNext"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <!-- Quick View Modal -->
+    <div class="quickview-overlay" id="quickviewModal">
+        <div class="quickview-card">
+            <button class="quickview-close" id="quickviewClose"><i class="fas fa-times"></i></button>
+            <img id="qvImg" src="" alt="Room">
+            <div class="quickview-content">
+                <h3 id="qvTitle"></h3>
+                <div class="qv-price" id="qvPrice"></div>
+                <p id="qvDesc"></p>
+                <a href="#contact" class="btn-primary" id="qvBook" onclick="document.getElementById('quickviewModal').classList.remove('active')">Book This Room</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
