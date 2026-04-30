@@ -163,15 +163,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const target = document.querySelector(targetId);
             if (target) {
-                const headerOffset = 80;
-                const elementPosition = target.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                
-                window.scrollTo({
-                    top: offsetPosition,
+                target.scrollIntoView({
                     behavior: "smooth"
                 });
             }
@@ -271,7 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
             let waMessage = `*New Booking Inquiry* 🏨%0A%0A`;
             waMessage += `*Name:* ${name}%0A`;
             waMessage += `*Phone:* ${phone}%0A`;
-            waMessage += `*Preferred Location:* ${location === 'lusaka' ? 'Lusaka - Chalala' : 'Luanshya'}%0A`;
+            waMessage += `*Preferred Branch:* ${location === 'lusaka' ? 'Lusaka – Chalala (House 6, Jumbe St)' : 'Luanshya – Gardenia & Mikomfwa'}%0A`;
             if (message) {
                 waMessage += `*Requirements/Message:* ${message}%0A`;
             }
@@ -465,13 +463,25 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => dot.remove(), 700);
     });
 
-    // ── Toast Notification ──
+    // ── Advanced Toast Notification ──
     const toast = document.getElementById('offerToast');
     const toastClose = document.getElementById('toastClose');
     if (toast) {
-        setTimeout(() => toast.classList.add('show'), 3500);
-        toastClose && toastClose.addEventListener('click', () => toast.classList.remove('show'));
-        setTimeout(() => toast.classList.remove('show'), 10000);
+        // Show after a delay
+        setTimeout(() => {
+            toast.classList.add('show');
+            
+            // Auto-hide after 10 seconds (matches CSS animation)
+            const autoHide = setTimeout(() => {
+                toast.classList.remove('show');
+            }, 10000);
+
+            // Manual close
+            toastClose && toastClose.addEventListener('click', () => {
+                toast.classList.remove('show');
+                clearTimeout(autoHide);
+            });
+        }, 4000);
     }
 
     // ── Gallery Lightbox ──
