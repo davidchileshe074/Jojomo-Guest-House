@@ -546,4 +546,33 @@ document.addEventListener('DOMContentLoaded', () => {
     qvClose && qvClose.addEventListener('click', closeQV);
     qvModal && qvModal.addEventListener('click', (e) => { if (e.target === qvModal) closeQV(); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeQV(); });
+
+    // ── Mobile Bottom Nav Active State ──
+    const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
+    const sections = ['home', 'pricing', 'services', 'contact'];
+    
+    const navObserverOptions = {
+        root: null,
+        rootMargin: '-20% 0px -70% 0px',
+        threshold: 0
+    };
+
+    const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                mobileNavItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.getAttribute('href') === `#${id}`) {
+                        item.classList.add('active');
+                    }
+                });
+            }
+        });
+    }, navObserverOptions);
+
+    sections.forEach(id => {
+        const section = document.getElementById(id);
+        if (section) navObserver.observe(section);
+    });
 });
