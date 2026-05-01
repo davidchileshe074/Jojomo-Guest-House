@@ -10,9 +10,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const sectionTitle = document.getElementById('sectionTitle');
     const editorContent = document.getElementById('editorContent');
     const publishBtn = document.getElementById('publishBtn');
+    const publishBtnHeader = document.getElementById('publishBtnHeader');
     const toast = document.getElementById('adminToast');
     const imageUploader = document.getElementById('imageUploader');
+    const menuToggle = document.getElementById('menuToggle');
+    const closeSidebar = document.getElementById('closeSidebar');
+    const adminContainer = document.querySelector('.admin-container');
+    const adminOverlay = document.getElementById('adminOverlay');
     let activeUploadTarget = null;
+
+    // ── Mobile Menu Toggle ──
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            adminContainer.classList.toggle('sidebar-active');
+        });
+    }
+
+    if (closeSidebar) {
+        closeSidebar.addEventListener('click', () => {
+            adminContainer.classList.remove('sidebar-active');
+        });
+    }
+
+    if (adminOverlay) {
+        adminOverlay.addEventListener('click', () => {
+            adminContainer.classList.remove('sidebar-active');
+        });
+    }
 
     // ── Image Upload Handling ──
     window.triggerUpload = (targetSelector) => {
@@ -67,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <div class="form-group">
                                 <label>Image</label>
                                 <div class="input-with-action">
-                                    <input type="text" id="heroSlide${i}" class="slide-img-input" value="${s.image}" onchange="this.parentElement.nextElementSibling.src=this.value">
+                                    <input type="text" id="heroSlide${i}" class="slide-img-input" value="${s.image}" readonly placeholder="Image selected..." onclick="triggerUpload('#heroSlide${i}')">
                                     <button class="btn-upload" onclick="triggerUpload('#heroSlide${i}')"><i class="fas fa-upload"></i> Upload</button>
                                 </div>
                                 <img src="${s.image}" class="image-preview-mini">
@@ -93,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="form-group">
                     <label>Main Image</label>
                     <div class="input-with-action">
-                        <input type="text" id="aboutImgInput" value="${data.about.image}" onchange="this.parentElement.nextElementSibling.src=this.value">
+                        <input type="text" id="aboutImgInput" value="${data.about.image}" readonly placeholder="Image selected..." onclick="triggerUpload('#aboutImgInput')">
                         <button class="btn-upload" onclick="triggerUpload('#aboutImgInput')"><i class="fas fa-upload"></i> Upload</button>
                     </div>
                     <img src="${data.about.image}" class="image-preview-mini">
@@ -124,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <div class="form-group">
                                 <label>Image</label>
                                 <div class="input-with-action">
-                                    <input type="text" id="roomImg${i}" class="room-img" value="${room.image}" onchange="this.parentElement.nextElementSibling.src=this.value">
+                                    <input type="text" id="roomImg${i}" class="room-img" value="${room.image}" readonly placeholder="Image selected..." onclick="triggerUpload('#roomImg${i}')">
                                     <button class="btn-upload" onclick="triggerUpload('#roomImg${i}')"><i class="fas fa-upload"></i> Upload</button>
                                 </div>
                                 <img src="${room.image}" class="image-preview-mini">
@@ -145,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <div class="form-group">
                                 <label>Image</label>
                                 <div class="input-with-action">
-                                    <input type="text" id="galleryImg${i}" class="gallery-img-input" value="${img}" onchange="this.parentElement.nextElementSibling.src=this.value">
+                                    <input type="text" id="galleryImg${i}" class="gallery-img-input" value="${img}" readonly placeholder="Image selected..." onclick="triggerUpload('#galleryImg${i}')">
                                     <button class="btn-upload" onclick="triggerUpload('#galleryImg${i}')"><i class="fas fa-upload"></i> Upload</button>
                                 </div>
                                 <img src="${img}" class="image-preview-mini">
@@ -197,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <div class="form-group">
                                 <label>Image</label>
                                 <div class="input-with-action">
-                                    <input type="text" id="locImg${i}" class="loc-img" value="${loc.image}" onchange="this.parentElement.nextElementSibling.src=this.value">
+                                    <input type="text" id="locImg${i}" class="loc-img" value="${loc.image}" readonly placeholder="Image selected..." onclick="triggerUpload('#locImg${i}')">
                                     <button class="btn-upload" onclick="triggerUpload('#locImg${i}')"><i class="fas fa-upload"></i> Upload</button>
                                 </div>
                                 <img src="${loc.image}" class="image-preview-mini">
@@ -262,6 +286,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const section = link.getAttribute('data-section');
             saveCurrentSection(); // Auto-save when switching
             switchSection(section);
+            
+            // Close sidebar on mobile after clicking
+            if (window.innerWidth <= 992) {
+                adminContainer.classList.remove('sidebar-active');
+            }
         });
     });
 
@@ -347,7 +376,7 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('jojomo_site_data', JSON.stringify(data));
     }
 
-    publishBtn.addEventListener('click', () => {
+    const handlePublish = () => {
         saveCurrentSection();
         
         // Show success toast
@@ -365,7 +394,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if(confirm('Changes saved to browser! Do you also want to download the updated data.js file to update your code permanently?')) {
             link.click();
         }
-    });
+    };
+
+    publishBtn && publishBtn.addEventListener('click', handlePublish);
+    publishBtnHeader && publishBtnHeader.addEventListener('click', handlePublish);
 
     // Initialize
     switchSection('hero');

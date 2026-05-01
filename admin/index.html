@@ -11,10 +11,13 @@
 </head>
 <body class="admin-body">
     <div class="admin-container">
+        <!-- Overlay for mobile -->
+        <div class="admin-overlay" id="adminOverlay"></div>
         <!-- Sidebar -->
         <aside class="admin-sidebar">
             <div class="admin-logo">
                 JOJOMO <span>CMS</span>
+                <button id="closeSidebar" class="admin-close-btn"><i class="fas fa-times"></i></button>
             </div>
             <nav class="admin-nav">
                 <a href="#hero" class="active" data-section="hero"><i class="fas fa-image"></i> Hero Section</a>
@@ -36,10 +39,16 @@
         <!-- Main Content -->
         <main class="admin-main">
             <header class="admin-header">
-                <h1 id="sectionTitle">Hero Section</h1>
-                <div class="admin-user">
-                    <span>Admin Mode</span>
-                    <i class="fas fa-user-shield"></i>
+                <div class="header-left">
+                    <button id="menuToggle" class="admin-menu-btn"><i class="fas fa-bars"></i></button>
+                    <h1 id="sectionTitle">Hero Section</h1>
+                </div>
+                <div class="admin-header-actions">
+                    <button id="publishBtnHeader" class="btn-publish btn-small"><i class="fas fa-upload"></i> Publish</button>
+                    <div class="admin-user">
+                        <span>Admin</span>
+                        <i class="fas fa-user-shield"></i>
+                    </div>
                 </div>
             </header>
 
