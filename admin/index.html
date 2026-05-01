@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jojomo CMS | Admin Dashboard</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="admin-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="admin-body">
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="admin-logo">
+                JOJOMO <span>CMS</span>
+            </div>
+            <nav class="admin-nav">
+                <a href="#hero" class="active" data-section="hero"><i class="fas fa-image"></i> Hero Section</a>
+                <a href="#about" data-section="about"><i class="fas fa-info-circle"></i> About Us</a>
+                <a href="#rooms" data-section="rooms"><i class="fas fa-bed"></i> Room Pricing</a>
+                <a href="#locations" data-section="locations"><i class="fas fa-map-marker-alt"></i> Branches</a>
+                <a href="#gallery" data-section="gallery"><i class="fas fa-images"></i> Gallery</a>
+                <a href="#services" data-section="services"><i class="fas fa-concierge-bell"></i> Services</a>
+                <a href="#faq" data-section="faq"><i class="fas fa-question-circle"></i> FAQ</a>
+                <a href="#testimonials" data-section="testimonials"><i class="fas fa-star"></i> Testimonials</a>
+                <a href="#contact" data-section="contact"><i class="fas fa-address-book"></i> Contact Info</a>
+            </nav>
+            <div class="admin-footer">
+                <button id="publishBtn" class="btn-publish"><i class="fas fa-upload"></i> Publish Changes</button>
+                <a href="../index.html" class="btn-view-site"><i class="fas fa-external-link-alt"></i> View Site</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <header class="admin-header">
+                <h1 id="sectionTitle">Hero Section</h1>
+                <div class="admin-user">
+                    <span>Admin Mode</span>
+                    <i class="fas fa-user-shield"></i>
+                </div>
+            </header>
+
+            <div id="editorContent" class="editor-content">
+                <!-- Content will be injected here by admin.js -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="adminToast" class="admin-toast">Changes Saved!</div>
+
+    <!-- Hidden File Input for Uploads -->
+    <input type="file" id="imageUploader" accept="image/*" style="display: none;">
+
+    <!-- Scripts -->
+    <script src="../data.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

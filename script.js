@@ -297,7 +297,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Typing effect for Hero
     const typeWriterMulti = document.querySelector('.typing-multi');
     if(typeWriterMulti) {
-        const words = ["Affordable Prices", "Comfortable Stays", "Secure Environments"];
+        // Use data from siteData if available, fallback to defaults
+        const words = (window.siteData && window.siteData.hero) ? window.siteData.hero.typingWords : ["Affordable Prices", "Comfortable Stays", "Secure Environments"];
         let wordIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
@@ -348,18 +349,16 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(element);
     });
 
-    // Accordion Logic
-    const accordionItems = document.querySelectorAll('.accordion-item');
-    accordionItems.forEach(item => {
-        const header = item.querySelector('.accordion-header');
+    // Accordion Logic (using Event Delegation)
+    document.addEventListener('click', (e) => {
+        const header = e.target.closest('.accordion-header');
         if (header) {
-            header.addEventListener('click', () => {
-                const currentlyActive = document.querySelector('.accordion-item.active');
-                if (currentlyActive && currentlyActive !== item) {
-                    currentlyActive.classList.remove('active');
-                }
-                item.classList.toggle('active');
-            });
+            const item = header.parentElement;
+            const currentlyActive = document.querySelector('.accordion-item.active');
+            if (currentlyActive && currentlyActive !== item) {
+                currentlyActive.classList.remove('active');
+            }
+            item.classList.toggle('active');
         }
     });
 
@@ -493,14 +492,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const lightboxNext = document.getElementById('lightboxNext');
     let lbImages = [], lbIndex = 0;
 
-    lightboxTriggers.forEach((img, i) => {
-        lbImages.push(img.src);
-        img.addEventListener('click', () => {
-            lbIndex = i;
+    // Lightbox Logic (using Event Delegation)
+    document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('lightbox-trigger')) {
+            const img = e.target;
+            const allTriggers = Array.from(document.querySelectorAll('.lightbox-trigger'));
+            lbImages = allTriggers.map(t => t.src);
+            lbIndex = allTriggers.indexOf(img);
+            
             lightboxImg.src = img.src;
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden';
-        });
+        }
     });
 
     function closeLightbox() {
@@ -537,8 +540,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const qvPrice = document.getElementById('qvPrice');
     const qvDesc  = document.getElementById('qvDesc');
 
-    document.querySelectorAll('.btn-quickview').forEach(btn => {
-        btn.addEventListener('click', () => {
+    // Room Quick-View Logic (using Event Delegation)
+    document.addEventListener('click', (e) => {
+        const btn = e.target.closest('.btn-quickview');
+        if (btn) {
             const card = btn.closest('.price-card');
             qvImg.src      = card.getAttribute('data-img');
             qvTitle.textContent = card.getAttribute('data-room');
@@ -546,7 +551,7 @@ document.addEventListener('DOMContentLoaded', () => {
             qvDesc.textContent  = card.getAttribute('data-desc');
             qvModal.classList.add('active');
             document.body.style.overflow = 'hidden';
-        });
+        }
     });
 
     function closeQV() {
