@@ -30,7 +30,10 @@ function renderSite() {
 
     if (aboutTitle) aboutTitle.textContent = data.about.title;
     if (aboutDesc) aboutDesc.textContent = data.about.description;
-    if (aboutImg) aboutImg.src = data.about.image;
+    if (aboutImg) {
+        aboutImg.src = data.about.image;
+        aboutImg.alt = "About Jojomo Guest House - Quality Accommodation";
+    }
     if (aboutFeatures) {
         aboutFeatures.innerHTML = data.about.features.map(f => `
             <div class="feature"><i class="${f.icon}"></i> <span>${f.text}</span></div>
@@ -49,7 +52,7 @@ function renderSite() {
                         ${loc.details.map(d => `<li><i class="fas fa-check-circle"></i> ${d}</li>`).join('')}
                     </ul>
                     <div class="map-container">
-                        <iframe src="${loc.mapEmbed}" width="100%" height="150" style="border:0; border-radius: 10px; margin-top: 15px;" allowfullscreen="" loading="lazy"></iframe>
+                        <iframe src="${loc.mapEmbed}" width="100%" height="150" style="border:0; border-radius: 10px; margin-top: 15px;" allowfullscreen="" loading="lazy" title="Map for ${loc.name}"></iframe>
                     </div>
                 </div>
             </div>
@@ -76,8 +79,8 @@ function renderSite() {
     // 6. Gallery
     const sliderTrack = document.querySelector('.slider-track');
     if (sliderTrack) {
-        sliderTrack.innerHTML = data.gallery.map(img => `
-            <img src="${img}" alt="Room" class="lightbox-trigger">
+        sliderTrack.innerHTML = data.gallery.map((img, i) => `
+            <img src="${img}" alt="Jojomo Guest House Room Gallery Image ${i + 1} - Comfortable Accommodation in Zambia" class="lightbox-trigger" loading="lazy">
         `).join('');
     }
 

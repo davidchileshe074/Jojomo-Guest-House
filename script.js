@@ -546,6 +546,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (btn) {
             const card = btn.closest('.price-card');
             qvImg.src      = card.getAttribute('data-img');
+            qvImg.alt      = card.getAttribute('data-room') + " - Jojomo Guest House";
             qvTitle.textContent = card.getAttribute('data-room');
             qvPrice.textContent = card.getAttribute('data-price') + ' / night';
             qvDesc.textContent  = card.getAttribute('data-desc');
